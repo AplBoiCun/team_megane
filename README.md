@@ -18,4 +18,5 @@ https://qiita.com/ynakayama/items/234ad00ae520030217ab
 - 地図上で可視化するのか？
 
 アフィカス
+good job
 abc
