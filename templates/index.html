@@ -3,23 +3,38 @@
 <html lang="ja">
     <head>
         <meta charset = "UFT-8">
-        <title>ぺちゃくちゃ</title>
+        <title>Eventoday</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     </head>
     <body>
-      <div id="logo"><img src="{{ url_for('static', filename='logo.png') }}"></div>
-        <h1>simplest chat board</h1>
+      <!--
+      <div id="logo"><img src="{{ url_for('static', filename='logo.png') }}"></div>-->
+<p>オススメのイベントを教えてくれるアプリがあれば良いと思いませんか？？</p>
+<p>Eventodayとは、急に時間が空いた、勉強の息抜きに何処か出かけたい。など手軽にイベントに参加したいときにとても便利なアプリです。</p>
+<p>ご登録頂いたメールアドレスに定期的に、近場で開催されるおすすめのイベントをpick upして通知いたします</p>
+
+        <h2>Let's find interesting events now!!</h2>
+
         <div id="app">
             <form action='/add'>
-              <input type='text' name='user' placeholder='name'>
-              <input type='text' name='message' placeholder='message'>
+              <p>メールアドレス<input type='text' name='adress' placeholder='adress'></p>
+
+              <p>TwitterID<input type='text' name='ID' placeholder='@TwitterID'></p>
+
+              <p>エリアを選択<select name='area' name="area">
+                <option value="北海道">北海道</option>
+                <option value="東京都" selected>東京都</option>
+
+
+
              <input type='submit'>
             </form>
 
-            {% for post in posts %}
-            <h2>{{ post.user }}</h2>
-            <p>{{ post.message }}</p>
-            {% endfor %}
+        <!--    {% for post in posts %}
+            <h2>{{ post.adress }}</h2>
+            <p>{{ post.ID }}</p>
+            <p>{{ post.area }}</p>
+            {% endfor %}      -->
         </div>
         <ls> 今日は2018-05-17 </ls>
         <ls> 時刻は15:45 </ls>

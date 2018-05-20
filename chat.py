@@ -5,23 +5,24 @@ from tinydb import TinyDB, Query
 db = TinyDB('chat_db.json')
 
 @app.route("/")
-@app.route("/index")
+#@app.route("/index")
 def index():
     return render_template('index.html', posts = db.all())
 
-@app.route("/add")
+@app.route("/registration")
 def add():
     db.insert({
-        'user': request.args.get('user'),
-        'message': request.args.get('message')
+        'adress': request.args.get('adress'),
+        "area":request.args.get("area"),
+        'ID': request.args.get('ID')
     })
-    return index()
+    return render_template('top.html', posts = db.all())
 
 @app.route("/reset")
 def reset():
     if db is not None:
         db.purge()
-    db.insert({'user': 'Pecha','message':'Welcome :)'})
+    db.insert({'adress': 'Pecha','area':'Welcome','ID':'id'})
     return index()
 
 if __name__ == "__main__":
