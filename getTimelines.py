@@ -6,7 +6,7 @@ import json
 from requests_oauthlib import OAuth1Session  # OAuthのライブラリの読み込み
 from tinydb import TinyDB, Query
 db = TinyDB('tweet_db.json')
-
+db.purge()
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
 
@@ -19,7 +19,7 @@ twitter = OAuth1Session(CK, CS, AT, ATS)  # 認証処理
 
 url = "https://api.twitter.com/1.1/statuses/user_timeline.json"  # タイムライン取得エンドポイント
 
-params = {'count': 3}  # 取得数
+params = {'count': 1000}  # 取得数
 res = twitter.get(url, params=params)
 
 if res.status_code == 200:  # 正常通信出来た場合
