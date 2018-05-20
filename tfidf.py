@@ -2,6 +2,7 @@ import sys
 import collections
 import dbm
 import json
+import re
 
 from tinydb import TinyDB, Query
 
@@ -26,7 +27,10 @@ if __name__ == "__main__":
   data = termextract.core.term_importance(frequency, lr)
   data_collection = collections.Counter(data)
   for cmp_noun, value in data_collection.most_common():
-    print(termextract.core.modify_agglutinative_lang(cmp_noun) + " " + str(value))
-    # print("\t")
-    # print(str(value))
-    # print("\n")
+    keyword = termextract.core.modify_agglutinative_lang(cmp_noun)
+    if keyword.count("@") + keyword.count("RT") + keyword.count("http"):
+      continue
+    else:
+      if value > 3:
+        print(termextract.core.modify_agglutinative_lang(
+            cmp_noun) + " " + str(value))
