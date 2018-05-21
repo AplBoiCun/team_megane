@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, redirect, url_for
 app = Flask(__name__)
 
 from tinydb import TinyDB, Query
-db = TinyDB('chat_db.json')
+db = TinyDB('user_db.json')
 db.purge()
 
 
