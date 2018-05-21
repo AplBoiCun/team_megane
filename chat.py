@@ -3,27 +3,30 @@ app = Flask(__name__)
 
 from tinydb import TinyDB, Query
 db = TinyDB('chat_db.json')
-
+db.purge()
 @app.route("/")
 #@app.route("/index")
 def index():
-    return render_template('index.html', posts = db.all())
+    
+    return render_template('index.html')
 
 @app.route("/registration")
 def add():
     db.insert({
-        'adress': request.args.get('adress'),
+        'adress': request.args.get('Adress'),
         "area":request.args.get("area"),
-        'ID': request.args.get('ID')
+        'ID': request.args.get('ID'),
+        "interesting":request.args.getlist('events')
     })
-    return render_template('top.html', posts = db.all())
 
-@app.route("/reset")
-def reset():
-    if db is not None:
-        db.purge()
-    db.insert({'adress': 'Pecha','area':'Welcome','ID':'id'})
-    return index()
+    return render_template('registercompleted.html', posts = db.all())
+
+#@app.route("/reset")
+#def reset():
+#    if db is not None:
+#        db.purge()
+#    db.insert({'adress': 'Pecha','area':'Welcome','ID':'id'})
+#    return index()
 
 if __name__ == "__main__":
     app.run(debug = True, port=5000, host="0.0.0.0")
