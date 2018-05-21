@@ -4,12 +4,13 @@ import json
 from tinydb import TinyDB, Query
 
 db = TinyDB('event_db01.json')                  #データベース作成
+db.purge_tables()
 
 url = 'http://eventon.jp/api/events.json?'
 
 param = {
     #'prefecture_id':'1',  #北海道
-    'ym': '201805',       #イベント年月日
+    'ymd_between': '20180528, 20180611',       #イベント年月日範囲
         'limit': '100',        #表示件数
 }
 
