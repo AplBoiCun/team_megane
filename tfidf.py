@@ -1,3 +1,6 @@
+# tfidf.pyを使うには、以下のサイトを参考に必要なモジュールをいれてね
+# https://qiita.com/EastResident/items/0cdc7c5ac1f0a6b3cf1d
+#
 import sys
 import collections
 import dbm
