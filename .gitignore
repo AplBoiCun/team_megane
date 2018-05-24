@@ -105,5 +105,3 @@ venv.bak/
 
 
 .DS_Store
-*.json
-!keywords.json

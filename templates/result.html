@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <meta charset = "UFT-8">
+        <meta charset = "utf-8">
         <title>Eventoday</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     </head>
     <body>
-      <p>登録完了</p>
-      <p>Thank you!!</p>
-      <p>DB</p>
+
+      <h2>結果はこちら↓</h2>
       {% for post in posts %}
-      <h2>Mail Adress:{{ post.adress }}</h2>
-      <h2>TwitterID:{{ post.ID }}</h2>
-      <h2>Area:{{ post.area }}</h2>
-      <h2>Interesting:{{ post.interesting }}</h2>
+      <h3>TwitterID:{{ post.ID }}</h3>
+      <h3>Area:{{ post.area }}</h3>
+      
       <p>----------------------------------------</p>
       {% endfor %}
 
