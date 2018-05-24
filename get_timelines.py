@@ -9,7 +9,7 @@ from tinydb import TinyDB, Query
 
 def get(id):
   print("idはこれ" + id)
-  db = TinyDB('tweet_db.json')
+  db = TinyDB('main_db.json')
   db.purge()
   dotenv_path = join(dirname(__file__), '.env')
   load_dotenv(dotenv_path)

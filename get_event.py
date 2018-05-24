@@ -8,7 +8,7 @@ def eventon(db, day):
     url_eventon = 'http://eventon.jp/api/events.json?'
     param_eventon = {
         'ymd': day,       # イベント年月日範囲
-        'limit': '100',        # 表示件数
+        'limit': '3',        # 表示件数
     }
     paramStr_eventon = parse.urlencode(param_eventon)
     readObj_eventon = request.urlopen(url_eventon + paramStr_eventon)
@@ -19,10 +19,14 @@ def eventon(db, day):
         db.insert({
                   'service': 'eventon',
                   'title': event_info_eventon[k]['title'],
+                  'description': event_info_eventon[k]['contents'],
+                  'url': event_info_eventon[k]['event_url'],
                   'started_at': event_info_eventon[k]['started_at'],
+                  'ended_at': event_info_eventon[k]['ended_at'],
+                  'address': event_info_eventon[k]['address'],
+                  'place': event_info_eventon[k]['place'],
                   'latitude': event_info_eventon[k]['lat'],
                   'longitude': event_info_eventon[k]['lng'],
-                  'tag': event_info_eventon[k]['categories']
                   })
 
 
@@ -32,7 +36,7 @@ def attend(db, day):
     param_atnd = {
         # 'area':'1',  #北海道
         'ymd': day,       # イベント年月
-        'count': '100',        # 表示件数
+        'count': '3',        # 表示件数
         'format': 'json'
     }
     paramStr_atnd = parse.urlencode(param_atnd)
@@ -44,10 +48,14 @@ def attend(db, day):
         db.insert({
                   'service': 'atnd',
                   'title': event_info_atnd[k]['event']['title'],
+                  'description': event_info_atnd[k]['event']['description'],
+                  'url': event_info_atnd[k]['event']['event_url'],
                   'started_at': event_info_atnd[k]['event']['started_at'],
+                  'ended_at': event_info_atnd[k]['event']['ended_at'],
+                  'address': event_info_atnd[k]['event']['address'],
+                  'place': event_info_atnd[k]['event']['place'],
                   'latitude': str(event_info_atnd[k]['event']['lat']),
                   'longitude': str(event_info_atnd[k]['event']['lon']),
-                  'tag': event_info_atnd[k]['event']['description']
                   })
 
 
@@ -56,7 +64,7 @@ def connpass(db, day):
     url = 'https://connpass.com/api/v1/event/?'
     param = {
         'ymd': day,
-        'count': '100'
+        'count': '3'
     }
     readObj = request.urlopen(url + parse.urlencode(param))
 
@@ -70,9 +78,8 @@ def connpass(db, day):
         db.insert({
             'service': 'connpass',
             'title': event_info[k]['title'],
-            'catch': event_info[k]['catch'],
             'description': event_info[k]['description'],
-            'event_url': event_info[k]['event_url'],
+            'url': event_info[k]['event_url'],
             'started_at': event_info[k]['started_at'],
             'ended_at': event_info[k]['ended_at'],
             'address': event_info[k]['address'],
@@ -82,13 +89,14 @@ def connpass(db, day):
         })
 
 def main():
-    db = TinyDB('event_db.json')                  # データベース作成
-    db.purge_tables()
-    for i in range(14):
+    db = TinyDB('main_db.json')                  # データベース作成
+    event_table = db.table('event_table')
+    event_table.purge()
+    for i in range(1):
         day = datetime.strftime((date.today()+timedelta(days=i)),"%Y%m%d")
-        eventon(db, day)
-        attend(db, day)
-        connpass(db, day)
+        eventon(event_table, day)
+        attend(event_table, day)
+        connpass(event_table, day)
 
 if __name__ == "__main__":
     main()
