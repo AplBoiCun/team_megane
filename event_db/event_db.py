@@ -19,10 +19,14 @@ def eventon(db, day):
         db.insert({
                   'service': 'eventon',
                   'title': event_info_eventon[k]['title'],
+                  'description': event_info_eventon[k]['contents'],
+                  'url': event_info_eventon[k]['event_url'],
                   'started_at': event_info_eventon[k]['started_at'],
+                  'ended_at': event_info_eventon[k]['ended_at'],
+                  'address': event_info_eventon[k]['address'],
+                  'place': event_info_eventon[k]['place'],
                   'latitude': event_info_eventon[k]['lat'],
                   'longitude': event_info_eventon[k]['lng'],
-                  'tag': event_info_eventon[k]['categories']
                   })
 
 
@@ -44,10 +48,14 @@ def attend(db, day):
         db.insert({
                   'service': 'atnd',
                   'title': event_info_atnd[k]['event']['title'],
+                  'description': event_info_atnd[k]['event']['description'],
+                  'url': event_info_atnd[k]['event']['event_url'],
                   'started_at': event_info_atnd[k]['event']['started_at'],
+                  'ended_at': event_info_atnd[k]['event']['ended_at'],
+                  'address': event_info_atnd[k]['event']['address'],
+                  'place': event_info_atnd[k]['event']['place'],
                   'latitude': str(event_info_atnd[k]['event']['lat']),
                   'longitude': str(event_info_atnd[k]['event']['lon']),
-                  'tag': event_info_atnd[k]['event']['description']
                   })
 
 
@@ -70,9 +78,8 @@ def connpass(db, day):
         db.insert({
             'service': 'connpass',
             'title': event_info[k]['title'],
-            'catch': event_info[k]['catch'],
             'description': event_info[k]['description'],
-            'event_url': event_info[k]['event_url'],
+            'url': event_info[k]['event_url'],
             'started_at': event_info[k]['started_at'],
             'ended_at': event_info[k]['ended_at'],
             'address': event_info[k]['address'],
