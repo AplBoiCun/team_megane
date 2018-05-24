@@ -91,6 +91,7 @@ def connpass(db, day):
 def main():
     db = TinyDB('main_db.json')                  # データベース作成
     event_table = db.table('event_table')
+    event_table.purge()
     for i in range(1):
         day = datetime.strftime((date.today()+timedelta(days=i)),"%Y%m%d")
         eventon(event_table, day)
