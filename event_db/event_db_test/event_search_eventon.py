@@ -26,4 +26,6 @@ event_info=data['events']
 for k in range(0,len(event_info)):
     print(event_info[k]['title'])   #イベント名
     print(event_info[k]['started_at'])  #イベント開始日
+    print(event_info[k]['lat'] + " " + event_info[k]['lng'])       #イベント場所
+    print(event_info[k]['categories'])  #イベントカテゴリー
     print()

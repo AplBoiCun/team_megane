@@ -3,18 +3,123 @@
 <html lang="ja">
     <head>
         <meta charset = "utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Eventoday</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="イベント紹介サイト">
+        <meta name="keywords" content="ツイッター,郵便番号,イベント">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="{{ url_for('static', filename='jFormslider.js') }}"></script>
+        <script>
+        $(document).ready(function(){
+          options={
+
+            width:500,
+            height:300,
+            next_prev:true,
+            next_class:'btn btn-primary btn-lg',
+            prev_class:'btn btn-primary btn-lg',
+            error_class:'alert alert-danger',
+
+            texts:{
+              next:'OK',
+              prev:'戻る'
+            },
+            speed:750,
+          };
+          $('#slider').jFormslider(options);
+        })
+        </script>
     </head>
     <body>
+      <header>
+      <h1 id="logo"><a href="index.html"><img src="{{ url_for('static', filename='logo.png') }}" alt="Simple Site"></a></h1>
+      <nav id="menubar">
+      <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#search">検索</a></li>
+      </ul>
+      </nav>
+      </header>
 
-    <h2>  Eventodayへようこそ！！ </h2>
-<p class=explanation>オススメのイベントを教えてくれるアプリがあれば良いと思いませんか？？</p>
-<p class=explanation>Eventodayとは、急に時間が空いた、勉強の息抜きに何処か出かけたい。など手軽にイベントに参加したいときにとても便利なアプリです。</p>
-<p class=explanation>Twitterアカウントからあなたにおすすめのイベントをpick upします！！</p>
+        <div class="contents" id="about">
 
-        <h2>Let's find interesting events now!!</h2>
+          <section>
+            <h2>About</h2>
 
-      <a href="/input"></a>
-      </body>
+            <h3>What's Eventoday?</h3>
+            <p>あなた一人一人にあったイベントをおすすめするアプリケーションです。</p>
+            <P>123</P>
+
+            <h3>使い方</h3>
+            <p>TwitterIDとお住まいの郵便番号上3桁、好きなイベントを回答して頂くと、
+              その近くで開催されるおすすめのイベントを見つけて知らせます。</p>
+            </section>
+
+<p class="pagetop"><a href="#">↑</a></p>
+</div>
+<div class="contents" id="search">
+<section>
+
+<h2>検索</h2>
+<br>
+
+<div id="slider" class="form" style="margin-left:100px" autocomplete="off">
+<form action='/registercompleted' autocomplete="off" name="form1">
+  <ul>
+    <li data-id="slider_start">
+      <div class="form-group">
+        <p id="twitter">◎TwitterID</p>
+        <input type="text" class="form-control" name="twitter" placeholder="IDを入力してください" required  id="tweet"autocomplete="off">
+<br><br>
+      </div>
+
+    </li>
+    <li>
+      <div class="form-group">
+        <p id="area">◎郵便番号上3桁</p>
+        <input type="text" class="form-control" data-toggle="tooltip" data-placement="top" name="area" autocomplete="off" placeholder="郵便番号の上3桁を入力してください" id="postnum" required  number>
+        <br>
+        <a href="http://www.post.japanpost.jp/zipcode/">(郵便番号の検索はこちらから)</a><br>
+      </div>
+    </li>
+    <li>
+      <div class="form-group">
+        <p>◎興味のあるジャンルを選択(複数選択可)</p>
+        <table>
+        <tr>
+        <td><input type="checkbox" class="form-control" name="interesting" value="fes" checked> お祭り </td>
+        <td><input type="checkbox" class="form-control" name="interesting" value="gourmet" > グルメ </td>
+        <td><input type="checkbox" class="form-control" name="interesting" value="active" > 体験系</td>
+      </tr>
+    </table>
+
+      </div>
+
+<p><button type="submit" class="btn btn-info" id="subm" style="position: relative; left: 300px; top: 70px">送信!</button></p>
+    </li>
+  </ul>
+
+</form>
+</div>
+
+</section>
+
+<p class="pagetop"><a href="#">↑</a></p>
+
+</div>
+
+<footer>
+<small>Copyright&copy; <a href="index.html">Eventoday</a> All Rights Reserved.</small>
+<span class="pr">《<a href="http://template-party.com/" target="_blank">Web Design:Template-Party</a>》</span>
+</footer>
+
+<!--背景用の画像の読み込み-->
+<aside id="bg"><img src="{{ url_for('static', filename='bg.jpg') }}" class="landscape"><img src="{{ url_for('static', filename='bg2.jpg') }}" class="portrait"></aside>
+
+</body>
 </html>
