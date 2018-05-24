@@ -26,7 +26,13 @@ data =json.loads(res)
 event_info=data['events']
 
 for k in range(0,len(event_info)):
-    db.insert({'title':event_info[k]['title'], 'started_at':event_info[k]['started_at'], 'latitude':event_info[k]['lat'], 'longitude':event_info[k]['lng'], 'tag':event_info[k]['categories']})
+    db.insert({
+              'title':event_info[k]['title'],
+              'started_at':event_info[k]['started_at'],
+              'latitude':event_info[k]['lat'],
+              'longitude':event_info[k]['lng'],
+              'tag':event_info[k]['categories']
+              })
 
 for item in db:
     print(item)
