@@ -3,93 +3,125 @@
 <html lang="ja">
     <head>
         <meta charset = "utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Eventoday</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="イベント紹介サイト">
+        <meta name="keywords" content="ツイッター,郵便番号,イベント">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="{{ url_for('static', filename='jFormslider.js') }}"></script>
+        <script>
+        $(document).ready(function(){
+          options={
+
+            width:500,
+            height:300,
+            next_prev:true,
+            next_class:'btn btn-primary btn-lg',
+            prev_class:'btn btn-primary btn-lg',
+            error_class:'alert alert-danger',
+
+            texts:{
+              next:'OK',
+              prev:'戻る'
+            },
+            speed:750,
+          };
+          $('#slider').jFormslider(options);
+        })
+        </script>
     </head>
     <body>
-      <!--
-      <div id="logo"><img src="{{ url_for('static', filename='logo.png') }}"></div>-->
-    <h1>  Eventodayへようこそ！！ </h1>
-<p class=explanation>オススメのイベントを教えてくれるアプリがあれば良いと思いませんか？？</p>
-<p class=explanation>Eventodayとは、急に時間が空いた、勉強の息抜きに何処か出かけたい。など手軽にイベントに参加したいときにとても便利なアプリです。</p>
-<p class=explanation>ご登録頂いたメールアドレスに定期的に、近場で開催されるおすすめのイベントをpick upして通知いたします</p>
+      <header>
+      <h1 id="logo"><a href="index.html"><img src="{{ url_for('static', filename='logo.png') }}" alt="Simple Site"></a></h1>
+      <nav id="menubar">
+      <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#search">検索</a></li>
+      </ul>
+      </nav>
+      </header>
 
-        <h2>Let's find interesting events now!!</h2>
+        <div class="contents" id="about">
 
-        <div id="app">
-            <form action='/registration'>
-              <p>メールアドレス: <input type='email' name='Adress' placeholder='info@example.com' id="ad"></p>
+          <section>
+            <h2>About</h2>
 
-              <p>TwitterID:@ <input type='text' name='ID' placeholder='TwitterID'id="twtter"></p>
+            <h3>What's Eventoday?</h3>
+            <p>あなた一人一人にあったイベントをおすすめするアプリケーションです。</p>
+            <P>123</P>
 
-              <p>エリアを選択:  <select name='area' id="area">
-                <option value="Hokkaido">北海道</option>
-                <option value="Miyagi">宮城県</option>
-                <option value="Aomori">青森県</option>
-                <option value="Iwate">岩手県</option>
-                <option value="Akita">秋田県</option>
-                <option value="Yamagata">山形県</option>
-                <option value="Fukusima">福島県</option>
-                <option value="Tokyo" selected>東京都</option>
-                <option value="Kanagawa">神奈川県</option>
-                <option value="Chiba">千葉県</option>
-                <option value="Saitama">埼玉県</option>
-                <option value="Gunma">群馬県</option>
-                <option value=" Tochigi">栃木県</option>
-                <option value="Ibaraki">茨城県</option>
-                <option value="Yamanashi">山梨県</option>
-                <option value="Nagano">長野県</option>
-                <option value="Aichi">愛知県</option>
-                <option value="Gihu">岐阜県</option>
-                <option value="Mie">三重県</option>
-                <option value="Shizuoka">静岡県</option>
-                <option value="Ishikawa">石川県</option>
-                <option value="Toyama">富山県</option>
-                <option value="Fukui">福井県</option>
-                <option value="Osaka">大阪府</option>
-                <option value="Kyoto">京都府</option>
-                <option value="Hyogo">兵庫県</option>
-                <option value="Nara">奈良県</option>
-                <option value="Wakayama">和歌山県</option>
-                <option value="Shiga">滋賀県</option>
-                <option value="Hiroshima">広島県</option>
-                <option value="Okayama">岡山県</option>
-                <option value="Yamaguchi">山口県</option>
-                <option value="Tottori">鳥取県</option>
-                <option value="Shimane">島根県</option>
-                <option value="Kagawa">香川県</option>
-                <option value="Ehime">愛媛県</option>
-                <option value="Tokushima">徳島県</option>
-                <option value="Kouchi">高知県</option>
-                <option value="Fukuoka">福岡県</option>
-                <option value="Saga">佐賀県</option>
-                <option value="Nagasaki">長崎県</option>
-                <option value="Kumamoto">熊本県</option>
-                <option value="Oita">大分県</option>
-                <option value="Miyazaki">宮崎県</option>
-                <option value="Kagoshima">鹿児島県</option>
-                <option value="Okinawa">沖縄県</option>
-              </select>
-            </p>
-            <p>興味のあるイベント(複数回答可)</p>
-              <table id="xx">
-              <td><input type="checkbox" name="events" value="fes" class="abc">お祭り </td>
-              <td><input type="checkbox" name="events" value="gourmet" class="abc">グルメ </td>
-              <td><input type="checkbox" name="events" value="culture" class="abc">文化・芸術・スポーツ </td>
-              <td><input type="checkbox" name="events" value="animalgame" class="abc">動物・アニメ・ゲーム </td>
-              <td><input type="checkbox" name="events" value="active"class="abc">体験・アクティビティ </td>
+            <h3>使い方</h3>
+            <p>TwitterIDとお住まいの郵便番号上3桁、好きなイベントを回答して頂くと、
+              その近くで開催されるおすすめのイベントを見つけて知らせます。</p>
+            </section>
 
-            </table>
-             <p><input type='submit' value="送信！"></p>
-            </form>
+<p class="pagetop"><a href="#">↑</a></p>
+</div>
+<div class="contents" id="search">
+<section>
 
-    <!--        {% for post in posts %}
-            <>{{ post.adress }}</h2>
-            <p>{{ post.ID }}</p>
-            <p>{{ post.area }}</p>
-            {% endfor %}      -->
-        </div>
-        <ls> 今日は2018-05-17 </ls>
-        <ls> 時刻は15:45 </ls>
-      </body>
+<h2>検索</h2>
+<br>
+<div id="app">
+  <form action='/result' autocomplete="off" name="form1">
+<div id="slider" class="form" style="margin-left:100px" autocomplete="off">
+
+  <ul>
+    <li data-id="slider_start">
+      <div class="form-group">
+        <p id="twitter">◎TwitterID</p>
+        <input type="text" class="form-control" name="twitter" placeholder="IDを入力してください" required  id="tweet"autocomplete="off">
+<br><br>
+      </div>
+
+    </li>
+    <li>
+      <div class="form-group">
+        <p id="area">◎郵便番号上3桁</p>
+        <input type="text" class="form-control" data-toggle="tooltip" data-placement="top" name="area" autocomplete="off" placeholder="郵便番号の上3桁を入力してください" id="postnum" required  number>
+        <br>
+        <a href="http://www.post.japanpost.jp/zipcode/">(郵便番号の検索はこちらから)</a><br>
+      </div>
+      <p><button type="submit" class="btn btn-info" id="subm" style="position: relative; left: 300px; top: 70px">送信!</button></p>
+    </li>
+    <!--<li>
+      <div class="form-group">
+        <p>◎興味のあるジャンルを選択(複数選択可)</p>
+        <table>
+        <tr>
+        <td><input type="checkbox" class="form-control" name="interesting" value="fes" checked> お祭り </td>
+        <td><input type="checkbox" class="form-control" name="interesting" value="gourmet" > グルメ </td>
+        <td><input type="checkbox" class="form-control" name="interesting" value="active" > 体験系</td>
+      </tr>
+    </table>
+
+      </div>
+</li>-->
+<!--<p><button type="submit" class="btn btn-info" id="subm" style="position: relative; left: 300px; top: 70px">送信!</button></p>
+-->
+  </ul>
+</div>
+</form>
+
+</div>
+</section>
+
+<p class="pagetop"><a href="#">↑</a></p>
+
+</div>
+
+<footer>
+<small>Copyright&copy; <a href="index.html">Eventoday</a> All Rights Reserved.</small>
+<span class="pr">《<a href="http://template-party.com/" target="_blank">Web Design:Template-Party</a>》</span>
+</footer>
+
+<!--背景用の画像の読み込み-->
+<aside id="bg"><img src="{{ url_for('static', filename='bg.jpg') }}" class="landscape"><img src="{{ url_for('static', filename='bg2.jpg') }}" class="portrait"></aside>
+
+</body>
 </html>
