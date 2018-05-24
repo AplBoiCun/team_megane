@@ -128,14 +128,14 @@ $.fn.jFormslider=function(options)
 			}
 
 	});
-	$('#postnum').keypress(function(e){
-		if ( e.which == 13 ) {
-			e.preventDefault();
-			document.form1.area.blur();
-			$this.nextSlide();
-			return false;
+//$('#postnum').keypress(function(e){
+//	if ( e.which == 13 ) {
+//		e.preventDefault();
+//		document.form1.area.blur();
+//		$this.nextSlide();
+//	return false;
 
-	}});
+//	}});
 	$('[next]').click(function(e){
 
 		e.preventDefault();

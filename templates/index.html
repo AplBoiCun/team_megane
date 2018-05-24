@@ -67,9 +67,10 @@
 
 <h2>検索</h2>
 <br>
-
+<div id="app">
+  <form action='/result' autocomplete="off" name="form1">
 <div id="slider" class="form" style="margin-left:100px" autocomplete="off">
-<form action='/registercompleted' autocomplete="off" name="form1">
+
   <ul>
     <li data-id="slider_start">
       <div class="form-group">
@@ -86,8 +87,9 @@
         <br>
         <a href="http://www.post.japanpost.jp/zipcode/">(郵便番号の検索はこちらから)</a><br>
       </div>
+      <p><button type="submit" class="btn btn-info" id="subm" style="position: relative; left: 300px; top: 70px">送信!</button></p>
     </li>
-    <li>
+    <!--<li>
       <div class="form-group">
         <p>◎興味のあるジャンルを選択(複数選択可)</p>
         <table>
@@ -99,14 +101,14 @@
     </table>
 
       </div>
-
-<p><button type="submit" class="btn btn-info" id="subm" style="position: relative; left: 300px; top: 70px">送信!</button></p>
-    </li>
+</li>-->
+<!--<p><button type="submit" class="btn btn-info" id="subm" style="position: relative; left: 300px; top: 70px">送信!</button></p>
+-->
   </ul>
-
-</form>
 </div>
+</form>
 
+</div>
 </section>
 
 <p class="pagetop"><a href="#">↑</a></p>

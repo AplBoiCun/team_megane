@@ -3,6 +3,8 @@ from flask import Flask, render_template, request, redirect, url_for
 app = Flask(__name__)
 
 from tinydb import TinyDB, Query
+db = TinyDB('user_db.json')
+db.purge()
 
 
 @app.route("/")
@@ -12,17 +14,17 @@ def index():
   return render_template('index.html')
 
 
-@app.route("/registration")
+@app.route("/result")
 def add():
   db.insert({
 
       "area": request.args.get("area"),
-      'ID': request.args.get('ID'),
-      "interesting": request.args.getlist('events')
-  })
-  get_timelines.get(request.args.get('ID'))
+      'ID': request.args.get('twitter')
 
-  return render_template('registercompleted.html', posts=db.all())
+  })
+  #get_timelines.get(request.args.get('twitter'))
+
+  return render_template('result.html', posts=db.all())
 
 #@app.route("/reset")
 # def reset():
