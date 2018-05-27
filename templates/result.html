@@ -8,20 +8,14 @@
     <body>
       <br><br>
       <h2>結果はこちら↓</h2>
+
+      {% for post in posts %}
+      <p>イベント名:{{ post.title }}</p>
+      <p>イベント詳細:{{ post.description }}</p>
+      {% endfor %}
       <section class="contents">
-
-      <p>TwitterID:{{ posts[1].ID }}</p>
-      <p>Area:{{ posts[1].area }}</p>
-      <!--{% for post in posts0 %}
-      <h3>おすすめのイベント1</h3>
-      <h3>イベント:{{ post.event }}</h3>
-      <h3>場所:{{ post.place }}</h3>
-      <h3>日時:{{post.date}}
-{% endfor %}-->
-      <p>-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
-
-
-      使用したイベントサイト<br>
+      <p>----------------------------------------</p>
+      <p>使用したイベントサイト<br>
       Eventon:
       <a href="https://eventon.jp/" target="_blank">https://eventon.jp/</a><br>
       connpass:
@@ -30,8 +24,7 @@
       <a href="https://atnd.org/" target="_blank">https://atnd.org/</a>
       <br><br><br><a href="/#search">もう一度検索</a>
       </section>
-
-
+      
 
       <aside id="bg"><img src="{{ url_for('static', filename='bg.jpg') }}" class="landscape"><img src="{{ url_for('static', filename='bg2.jpg') }}" class="portrait"></aside>
     </body>
