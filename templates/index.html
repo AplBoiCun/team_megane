@@ -17,14 +17,12 @@
         <script>
         $(document).ready(function(){
           options={
-
             width:500,
             height:300,
             next_prev:true,
             next_class:'btn btn-primary btn-lg',
             prev_class:'btn btn-primary btn-lg',
             error_class:'alert alert-danger',
-
             texts:{
               next:'OK',
               prev:'戻る'
@@ -34,6 +32,7 @@
           $('#slider').jFormslider(options);
         })
         </script>
+
     </head>
     <body>
       <header>
@@ -56,7 +55,7 @@
             <P>123</P>
 
             <h3>使い方</h3>
-            <p>TwitterIDとお住まいの郵便番号上3桁、好きなイベントを回答して頂くと、
+            <p>TwitterIDとお住まいの郵便番号7桁を回答して頂くと、
               その近くで開催されるおすすめのイベントを見つけて知らせます。</p>
             </section>
 
@@ -68,45 +67,37 @@
 <h2>検索</h2>
 <br>
 <div id="app">
-  <form action='/result' autocomplete="off" name="form1">
+
 <div id="slider" class="form" style="margin-left:100px" autocomplete="off">
 
   <ul>
+    <form action='/result' autocomplete="off" name="form1">
     <li data-id="slider_start">
       <div class="form-group">
         <p id="twitter">◎TwitterID</p>
-        <input type="text" class="form-control" name="twitter" placeholder="IDを入力してください" required  id="tweet"autocomplete="off">
+        <input type="text" class="form-control" name="twitter" placeholder="IDを入力してください" required  id="tweet" autocomplete="off" >
 <br><br>
       </div>
 
     </li>
     <li>
       <div class="form-group">
-        <p id="area">◎郵便番号上3桁</p>
-        <input type="text" class="form-control" data-toggle="tooltip" data-placement="top" name="area" autocomplete="off" placeholder="郵便番号の上3桁を入力してください" id="postnum" required  number>
+        <p id="area">◎郵便番号</p>
+        <input type="text" class="form-control" data-toggle="tooltip" data-placement="top" name="area" autocomplete="off" placeholder="郵便番号を入力してください" id="postnum"required number >
         <br>
-        <a href="http://www.post.japanpost.jp/zipcode/">(郵便番号の検索はこちらから)</a><br>
+        <a href="http://www.post.japanpost.jp/zipcode/" target="_blank">(郵便番号の検索はこちらから)</a><br>
       </div>
-      <p><button type="submit" class="btn btn-info" id="subm" style="position: relative; left: 300px; top: 70px">送信!</button></p>
-    </li>
-    <!--<li>
-      <div class="form-group">
-        <p>◎興味のあるジャンルを選択(複数選択可)</p>
-        <table>
-        <tr>
-        <td><input type="checkbox" class="form-control" name="interesting" value="fes" checked> お祭り </td>
-        <td><input type="checkbox" class="form-control" name="interesting" value="gourmet" > グルメ </td>
-        <td><input type="checkbox" class="form-control" name="interesting" value="active" > 体験系</td>
-      </tr>
-    </table>
+      <p><button type="submit" class="btn btn-info" id="subm" style="position: relative; left: 300px; top: 70px" >送信!</button></p>
 
-      </div>
-</li>-->
+    </li>
+  </form>
+
+
 <!--<p><button type="submit" class="btn btn-info" id="subm" style="position: relative; left: 300px; top: 70px">送信!</button></p>
 -->
   </ul>
 </div>
-</form>
+
 
 </div>
 </section>

@@ -6,15 +6,26 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     </head>
     <body>
-
+      <br><br>
       <h2>結果はこちら↓</h2>
+
       {% for post in posts %}
-      <h3>イベント名:{{ post.title }}</h3>
-      <h3>イベント詳細:{{ post.description }}</h3>
-
-      <p>----------------------------------------</p>
+      <p>イベント名:{{ post.title }}</p>
+      <p>イベント詳細:{{ post.description }}</p>
       {% endfor %}
+      <section class="contents">
+      <p>----------------------------------------</p>
+      <p>使用したイベントサイト<br>
+      Eventon:
+      <a href="https://eventon.jp/" target="_blank">https://eventon.jp/</a><br>
+      connpass:
+      <a href="https://connpass.com/" target="_blank">https://connpass.com/</a><br>
+      ATND:
+      <a href="https://atnd.org/" target="_blank">https://atnd.org/</a>
+      <br><br><br><a href="/#search">もう一度検索</a>
+      </section>
+      
 
-      <a href="/">Topに戻る</a>
+      <aside id="bg"><img src="{{ url_for('static', filename='bg.jpg') }}" class="landscape"><img src="{{ url_for('static', filename='bg2.jpg') }}" class="portrait"></aside>
     </body>
 </html>

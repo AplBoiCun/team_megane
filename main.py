@@ -1,4 +1,3 @@
-#import get_timelines
 from flask import Flask, render_template, request, redirect, url_for
 import get_timelines
 import user_add_keywords
@@ -7,8 +6,10 @@ import event_select
 app = Flask(__name__)
 
 from tinydb import TinyDB, Query
+
 db = TinyDB('main_db.json')                  # データベース作成
 user_table = db.table('user_table')
+
 
 @app.route("/")
 #@app.route("/index")
