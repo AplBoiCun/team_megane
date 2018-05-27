@@ -3,18 +3,20 @@
     <head>
         <meta charset = "utf-8">
         <title>Eventoday</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
     </head>
     <body>
       <br><br>
       <h2>結果はこちら↓</h2>
 
       {% for post in posts %}
-      <p>イベント名:{{ post.title }}</p>
-      <p>イベント詳細:{{ post.description }}</p>
+      <section class="contents" align="center">
+      <h3 >{{ post.title }}</h3>
+      <h3>URL:<a href= {{ post.url }} target="_blank">{{post.url}}</a></h3>
+      <h3>住所:<a href= https://www.google.co.jp/maps/search/{{ post.address }} target="_blank">{{post.address}}</a></h3>
+    </section>
       {% endfor %}
-      <section class="contents">
-      <p>----------------------------------------</p>
+
       <p>使用したイベントサイト<br>
       Eventon:
       <a href="https://eventon.jp/" target="_blank">https://eventon.jp/</a><br>
@@ -24,7 +26,7 @@
       <a href="https://atnd.org/" target="_blank">https://atnd.org/</a>
       <br><br><br><a href="/#search">もう一度検索</a>
       </section>
-      
+
 
       <aside id="bg"><img src="{{ url_for('static', filename='bg.jpg') }}" class="landscape"><img src="{{ url_for('static', filename='bg2.jpg') }}" class="portrait"></aside>
     </body>
