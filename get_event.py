@@ -27,6 +27,7 @@ def eventon(db, day):
                   'place': event_info_eventon[k]['place'],
                   'latitude': event_info_eventon[k]['lat'],
                   'longitude': event_info_eventon[k]['lng'],
+                  'keyword': ''
                   })
 
 
@@ -56,6 +57,7 @@ def attend(db, day):
                   'place': event_info_atnd[k]['event']['place'],
                   'latitude': str(event_info_atnd[k]['event']['lat']),
                   'longitude': str(event_info_atnd[k]['event']['lon']),
+                  'keyword': ''
                   })
 
 
@@ -85,7 +87,8 @@ def connpass(db, day):
             'address': event_info[k]['address'],
             'place': event_info[k]['place'],
             'latitude': event_info[k]['lat'],
-            'longitude': event_info[k]['lon']
+            'longitude': event_info[k]['lon'],
+            'keyword': ''
         })
 
 def main():
