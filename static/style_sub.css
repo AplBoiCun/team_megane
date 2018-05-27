@@ -1,0 +1,20 @@
+@charset "utf-8";
+.contents{
+  padding: 1%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 1%;
+  border-radius: 30px;		/*角丸のサイズ*/
+  border: 2px solid #3e6680;	/*枠線の幅、線種、色*/
+}
+body {
+    padding-right:0px;
+    font-size: 16px;
+    line-height: 1;
+}
+h3 {
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-bottom: 5px;
+  padding: 8px 6px;
+}

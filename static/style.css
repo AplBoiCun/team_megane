@@ -46,6 +46,7 @@ h2 {
 	padding: 10px 30px;		/*上下、左右への余白*/
 	background: #3f6680;	/*背景色*/
 	border-radius: 30px;		/*角丸のサイズ*/
+	background: #3f6680;
 }
 
 /*h3見出しタグの設定
@@ -54,8 +55,6 @@ h3 {
 	clear: both;
 	margin-bottom: 20px;
 	padding: 8px 30px;			/*上下、左右への余白*/
-	border-radius: 30px;		/*角丸のサイズ*/
-	border: 2px solid #3e6680;	/*枠線の幅、線種、色*/
 }
 
 
@@ -270,6 +269,11 @@ p {
 	width: 140px;		/*幅。下のline-heightと数字を合わせる。*/
 	line-height: 140px;	/*高さ。上のwidthと数字を合わせる。*/
 }
+#slider  {
+
+  margin-left: 0px !important;
+	width:30%;
+}
 
 /*Galleryページ
 ---------------------------------------------------------------------------*/
@@ -324,4 +328,9 @@ width:80px;
 height: 45px;
 font-size:20px
 
+}
+
+.form-group
+{
+  margin: 15px;
 }

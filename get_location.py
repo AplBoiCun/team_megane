@@ -19,6 +19,7 @@ def get(postcode):
 
     url = 'https://maps.googleapis.com/maps/api/geocode/json?'
     param = {
+        'key': 'AIzaSyBfAaGgILpSKTViicBbhTfqMLYHbsl_eRE',
         'address': town      # 上で得た市区町村を代入
     }
     paramStr = parse.urlencode(param)
@@ -26,7 +27,7 @@ def get(postcode):
     readObj = request.urlopen(url + paramStr)
     res = readObj.read().decode()
     data_location =json.loads(res)
-
+    print(data_location)
     geocoding = data_location['results'][0]['geometry']['location']
-    
+
     return geocoding
