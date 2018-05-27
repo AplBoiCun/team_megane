@@ -1,12 +1,13 @@
-#import get_timelines
 from flask import Flask, render_template, request, redirect, url_for
 import get_timelines
 
 app = Flask(__name__)
 
 from tinydb import TinyDB, Query
+
 db = TinyDB('main_db.json')                  # データベース作成
 user_table = db.table('user_table')
+
 
 @app.route("/")
 #@app.route("/index")
@@ -17,6 +18,7 @@ def index():
 
 @app.route("/result")
 def add():
+
   user_table.insert({
 
       "area": request.args.get("area"),
