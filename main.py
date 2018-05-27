@@ -1,6 +1,7 @@
 #import get_timelines
 from flask import Flask, render_template, request, redirect, url_for
 import get_timelines
+import user_add_keywords
 
 app = Flask(__name__)
 
@@ -17,14 +18,18 @@ def index():
 
 @app.route("/result")
 def add():
+  area = request.args.get('area')
+  id = request.args.get('twitter')
   user_table.insert({
 
-      'area': request.args.get('area'),
-      'ID': request.args.get('twitter'),
+      'area': area,
+      'ID': id,
       'keyword': ''
 
   })
-  get_timelines.get(request.args.get('twitter'))
+  get_timelines.get(id)
+  user_add_keywords.add(id)
+
 
   return render_template('result.html', posts=user_table.all())
 
