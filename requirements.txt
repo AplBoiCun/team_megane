@@ -6,6 +6,7 @@ click==6.7
 cycler==0.10.0
 Flask==1.0.2
 future==0.16.0
+gunicorn==19.8.1
 idna==2.6
 itsdangerous==0.24
 jedi==0.12.0
