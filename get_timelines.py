@@ -10,7 +10,8 @@ from tinydb import TinyDB, Query
 def get(id):
   print("idはこれ" + id)
   db = TinyDB('main_db.json')
-  db.purge()
+  timeline_table = db.table("timeline_table")
+  timeline_table.purge()
   dotenv_path = join(dirname(__file__), '.env')
   load_dotenv(dotenv_path)
 
@@ -30,7 +31,7 @@ def get(id):
     timelines = json.loads(res.text)  # レスポンスからタイムラインリストを取得
     print(timelines[0])
     for line in timelines:  # タイムラインリストをループ処理
-      db.insert({
+      timeline_table.insert({
           'text': line['text']
       })
   else:  # 正常通信出来なかった場合
