@@ -271,7 +271,7 @@ p {
 }
 #slider  {
 
-
+  margin-left: 0px !important;
 	width:30%;
 }
 
@@ -328,4 +328,9 @@ width:80px;
 height: 45px;
 font-size:20px
 
+}
+
+.form-group
+{
+  margin: 15px;
 }
