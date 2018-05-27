@@ -8,7 +8,7 @@ def eventon(db, day):
     url_eventon = 'http://eventon.jp/api/events.json?'
     param_eventon = {
         'ymd': day,       # イベント年月日範囲
-        'limit': '3',        # 表示件数
+        'limit': '100',        # 表示件数
     }
     paramStr_eventon = parse.urlencode(param_eventon)
     readObj_eventon = request.urlopen(url_eventon + paramStr_eventon)
@@ -37,7 +37,7 @@ def attend(db, day):
     param_atnd = {
         # 'area':'1',  #北海道
         'ymd': day,       # イベント年月
-        'count': '3',        # 表示件数
+        'count': '100',        # 表示件数
         'format': 'json'
     }
     paramStr_atnd = parse.urlencode(param_atnd)
@@ -66,7 +66,7 @@ def connpass(db, day):
     url = 'https://connpass.com/api/v1/event/?'
     param = {
         'ymd': day,
-        'count': '3'
+        'count': '100'
     }
     readObj = request.urlopen(url + parse.urlencode(param))
 
@@ -95,7 +95,7 @@ def main():
     db = TinyDB('main_db.json')                  # データベース作成
     event_table = db.table('event_table')
     event_table.purge()
-    for i in range(1):
+    for i in range(14):
         day = datetime.strftime((date.today()+timedelta(days=i)),"%Y%m%d")
         eventon(event_table, day)
         attend(event_table, day)
