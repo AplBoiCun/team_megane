@@ -11,6 +11,7 @@ from tinydb import TinyDB, Query
 
 db = TinyDB('main_db.json')                  # データベース作成
 user_table = db.table('user_table')
+q=Query()
 
 
 @app.route("/")
@@ -35,10 +36,12 @@ def add():
   user_add_keywords.add(id)
   events = event_select.select(id)
   events = sort_by_distance.get(events, area)
+  user = user_table.search(q.ID.matches(id))
+  user_keyword = '、'.join(list(set(user[0]["keyword"][:-1].split(","))))
 
 
 
-  return render_template('result.html', posts=events)
+  return render_template('result.html', posts=events, user_id=id, user_keyword=user_keyword)
 
 #@app.route("/reset")
 # def reset():
