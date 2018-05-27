@@ -5,20 +5,20 @@
     <head>
         <meta charset = "utf-8">
         <title>Eventoday</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style_sub.css') }}">
     </head>
     <body>
       <br><br>
       <h2>結果はこちら↓</h2>
 
-      {% for post in posts %}
+      {% for post in posts[0:50] %}
       <section class="contents" align="center">
-      <h3 >{{ post.title }}</h3>
-      <h3>URL: <a href= {{ post.url }} target="_blank">{{post.url}}</a></h3>
-      <h3>住所: <a href= https://www.google.co.jp/maps/search/{{ post.address }} target="_blank">{{post.address}}</a></h3>
-      <h3 id="start_time_change">{{post.started_at}}</h3>
-      <h3 id="end_time_change">{{post.ended_at}}</h3>
-    </section>
+      <h3>オススメ度第{{ loop.index0 + 1 }}位 {{post.distance|round(1)}}km先</h3>
+      <h3 ><a href= {{ post.url }} target="_blank">{{ post.title }}</h3>
+      <h3><span id="start_time_change_{{ loop.index0 }}"> {{post.started_at}}</span><span id="end_time_change_{{ loop.index0 }}">{{post.ended_at}}</span></h3>
+      <h3>住所: <a href= https://www.google.co.jp/maps/search/c target="_blank">{{post.address}}</a></h3>
+      </section>
       {% endfor %}
 
       <p>使用したイベントサイト<br>
@@ -35,4 +35,5 @@
       <aside id="bg"><img src="{{ url_for('static', filename='bg.jpg') }}" class="landscape"><img src="{{ url_for('static', filename='bg2.jpg') }}" class="portrait"></aside>
     </body>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="{{ url_for('static', filename='time_change.js') }}"></script>
 </html>
