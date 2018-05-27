@@ -16,4 +16,3 @@ for word_list in word_lists:
     for checkword in word_list[1:]:
         event_table.update(operations.add("keyword",word_list[0]+","), q.title.search(r"%s"% checkword))
         event_table.update(operations.add("keyword",word_list[0]+","), q.description.search(r"%s"% checkword))
-print(event_table.all())

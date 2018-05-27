@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
+from time import sleep
 import get_timelines
 import user_add_keywords
 import event_select
@@ -11,6 +12,8 @@ from tinydb import TinyDB, Query
 
 db = TinyDB('main_db.json')                  # データベース作成
 user_table = db.table('user_table')
+timeline_table = db.table('timeline_table')
+user_table.purge()
 q=Query()
 
 
@@ -33,6 +36,7 @@ def add():
 
   })
   get_timelines.get(id)
+  print("timelineの長さは"+str(len(timeline_table)))
   user_add_keywords.add(id)
   events = event_select.select(id)
   events = sort_by_distance.get(events, area)

@@ -15,10 +15,8 @@ def add(id):
         word_lists.append(word_list)
 
     for word_list in word_lists:
-        checker = False
+        checker = 0
         for checkword in word_list[1:]:
-            if timeline_table.search(q.text.search(r"%s"% checkword)) != []:
-                checker = True
-                break
-        if checker:
-            user_table.update(operations.add("keyword",word_list[0]+","), q.ID.matches(id))
+            checker += len(timeline_table.search(q.text.search(r"%s"% checkword)))
+        if checker > 0:
+            user_table.update(operations.add("keyword",word_list[0]+","), q.ID.matches(r"%s"% id))
