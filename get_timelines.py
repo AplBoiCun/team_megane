@@ -23,7 +23,7 @@ def get(id):
   url = "https://api.twitter.com/1.1/statuses/user_timeline.json"  # タイムライン取得エンドポイント
 
   params = {'screen_name': id,
-            'count': 10}  # 取得数
+            'count': 200}  # 取得数
   res = twitter.get(url, params=params)
 
   if res.status_code == 200:  # 正常通信出来た場合

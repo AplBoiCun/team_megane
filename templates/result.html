@@ -10,14 +10,14 @@
     </head>
     <body>
       <br><br>
-      <h2>結果はこちら↓</h2>
+      <h2>{{user_keyword}}に興味がある{{user_id}}さんの結果はこちら↓</h2>
 
       {% for post in posts[0:50] %}
       <section class="contents" align="center">
       <h3>オススメ度第{{ loop.index0 + 1 }}位 {{post.distance|round(1)}}km先</h3>
-      <h3 ><a href= {{ post.url }} target="_blank">{{ post.title }}</h3>
+      <h3 >{{ post.title }}</h3>
       <h3><span id="start_time_change_{{ loop.index0 }}"> {{post.started_at}}</span><span id="end_time_change_{{ loop.index0 }}">{{post.ended_at}}</span></h3>
-      <h3>住所: <a href= https://www.google.co.jp/maps/search/c target="_blank">{{post.address}}</a></h3>
+      <h3><a href= {{ post.url }} target="_blank">イベントサイトを開く</a>　　<a href= https://www.google.co.jp/maps/search/c target="_blank">Google Mapsで場所を調べる</a></h3>
       </section>
       {% endfor %}
 
