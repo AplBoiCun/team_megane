@@ -156,26 +156,17 @@ $.fn.jFormslider=function(options)
 	}});
 	$('[next]').click(function(e){
 
-		if(!anuvalid($.trim($(this).val())))
-		{
-			$('#'+randomid).html('Please Enter Alpahbet or Number or Underbar').show();
-			$(this).focus();
-			slidestart=false;
-			return false;
-		}
-		else{
+
 		e.preventDefault();
-		document.form1.area.blur();
 		$this.nextSlide();
-		return false;
+
 	}
 
 
 
 
 
-
-});
+);
 
 
 
