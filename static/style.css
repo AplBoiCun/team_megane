@@ -55,9 +55,6 @@ h3 {
 	clear: both;
 	margin-bottom: 20px;
 	padding: 8px 30px;			/*上下、左右への余白*/
-	border-radius: 30px;		/*角丸のサイズ*/
-	border: 2px solid #3e6680;	/*枠線の幅、線種、色*/
-
 }
 
 
