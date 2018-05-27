@@ -119,11 +119,20 @@ $.fn.jFormslider=function(options)
 	$('#tweet').keypress(function(e){
 
 		if ( e.which == 13 ) {
-				e.preventDefault();
-				document.form1.twitter.blur();
-				$this.nextSlide();
 
+			if(!anuvalid($.trim($(this).val())))
+			{
+				$('#'+randomid).html('Please Enter Alpahbet or Number or Underbar').show();
+				$(this).focus();
+				slidestart=false;
 				return false;
+			}
+			else{
+			e.preventDefault();
+			document.form1.area.blur();
+			$this.nextSlide();
+			return false;
+		}
 
 			}
 
@@ -132,7 +141,7 @@ $.fn.jFormslider=function(options)
 		if ( e.which == 13 ) {
 			if(!numvalid($.trim($(this).val())))
 			{
-				$('#'+randomid).html('Please enter a 7-figure number').show();
+				$('#'+randomid).html('Please Enter a 7-figure number').show();
 				$(this).focus();
 				slidestart=false;
 				return false;
@@ -147,15 +156,9 @@ $.fn.jFormslider=function(options)
 	}});
 	$('[next]').click(function(e){
 
-		e.preventDefault();
-		$this.nextSlide();
-	});
-
-	$(#subm).click(function(e){
-
-		if(!numvalid($.trim($(this).val())))
+		if(!anuvalid($.trim($(this).val())))
 		{
-			$('#'+randomid).html('Please enter a 7-figure number').show();
+			$('#'+randomid).html('Please Enter Alpahbet or Number or Underbar').show();
 			$(this).focus();
 			slidestart=false;
 			return false;
@@ -163,11 +166,18 @@ $.fn.jFormslider=function(options)
 		else{
 		e.preventDefault();
 		document.form1.area.blur();
-		document.form1.submit();
+		$this.nextSlide();
 		return false;
 	}
 
-	});
+
+
+
+
+
+});
+
+
 
 
 	$.fn.nextSlide=function(){
@@ -193,6 +203,13 @@ $.fn.jFormslider=function(options)
 				if(!numvalid($.trim($(this).val())))
 				{
 					$('#'+randomid).html('Please enter a 3-figure number').show();
+					$(this).focus();
+					slidestart=false;
+					return false;
+				}
+				if(!anuvalid($.trim($(this).val())))
+				{
+					$('#'+randomid).html('Please enter alphabet or number or underbar').show();
 					$(this).focus();
 					slidestart=false;
 					return false;
@@ -368,12 +385,14 @@ $.fn.jFormslider=function(options)
 		var rexp = /^[0-9]{7}$/;
 		return rexp.test(n);
 	}
+	function anuvalid(n)
+	{
+		var rexp = /^\w+$/;
+		return rexp.test(n);
+	}
 
 
-
-
-};
-
+}
 /* Function to check attr*/
 $.fn.hasAttr = function(name)
 {

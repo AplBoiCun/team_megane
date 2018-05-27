@@ -32,6 +32,7 @@
           $('#slider').jFormslider(options);
         })
         </script>
+
     </head>
     <body>
       <header>
@@ -54,7 +55,7 @@
             <P>123</P>
 
             <h3>使い方</h3>
-            <p>TwitterIDとお住まいの郵便番号、好きなイベントを回答して頂くと、
+            <p>TwitterIDとお住まいの郵便番号7桁を回答して頂くと、
               その近くで開催されるおすすめのイベントを見つけて知らせます。</p>
             </section>
 
@@ -74,7 +75,7 @@
     <li data-id="slider_start">
       <div class="form-group">
         <p id="twitter">◎TwitterID</p>
-        <input type="text" class="form-control" name="twitter" placeholder="IDを入力してください" required  id="tweet"autocomplete="off">
+        <input type="text" class="form-control" name="twitter" placeholder="IDを入力してください" required  id="tweet" autocomplete="off" >
 <br><br>
       </div>
 
@@ -84,7 +85,7 @@
         <p id="area">◎郵便番号</p>
         <input type="text" class="form-control" data-toggle="tooltip" data-placement="top" name="area" autocomplete="off" placeholder="郵便番号を入力してください" id="postnum"required number >
         <br>
-        <a href="http://www.post.japanpost.jp/zipcode/">(郵便番号の検索はこちらから)</a><br>
+        <a href="http://www.post.japanpost.jp/zipcode/" target="_blank">(郵便番号の検索はこちらから)</a><br>
       </div>
       <p><button type="submit" class="btn btn-info" id="subm" style="position: relative; left: 300px; top: 70px" >送信!</button></p>
 
