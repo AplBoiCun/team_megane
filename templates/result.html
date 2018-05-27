@@ -14,6 +14,7 @@
       <h3 >{{ post.title }}</h3>
       <h3>URL:<a href= {{ post.url }} target="_blank">{{post.url}}</a></h3>
       <h3>住所:<a href= https://www.google.co.jp/maps/search/{{ post.address }} target="_blank">{{post.address}}</a></h3>
+      <h3>日時:{{post.started_at}}</a></h3>
     </section>
       {% endfor %}
 
