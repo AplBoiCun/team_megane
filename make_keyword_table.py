@@ -10,7 +10,8 @@ keywords_list = [
 {"keyword": "Web","checkword": "web,Web,WEB,フロントエンド,バッグエンド,Rails,Django,Dlask,HTML,CSS,Javascript"},
 {"keyword": "データサイエンス","checkword": "データ,R,Python,機械学習,人工知能"},
 {"keyword": "仮想通貨", "checkword": "ブロックチェーン,Bitcoin,仮想通貨,マイニング"},
-{"keyword": "量子コンピュータ", "checkword": "量子コンピュータ"}
+{"keyword": "量子コンピュータ", "checkword": "量子コンピュータ"},
+{"keyword": "セキュリティ","checkword": "ハッキング,ハッカー,CTF"}
 
 ]
 
