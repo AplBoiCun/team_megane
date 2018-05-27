@@ -19,8 +19,9 @@ def index():
 def add():
   user_table.insert({
 
-      "area": request.args.get("area"),
-      'ID': request.args.get('twitter')
+      'area': request.args.get('area'),
+      'ID': request.args.get('twitter'),
+      'keyword': ''
 
   })
   get_timelines.get(request.args.get('twitter'))
