@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>
+
 <html lang="ja">
     <head>
         <meta charset = "utf-8">
@@ -12,9 +14,10 @@
       {% for post in posts %}
       <section class="contents" align="center">
       <h3 >{{ post.title }}</h3>
-      <h3>URL:<a href= {{ post.url }} target="_blank">{{post.url}}</a></h3>
-      <h3>住所:<a href= https://www.google.co.jp/maps/search/{{ post.address }} target="_blank">{{post.address}}</a></h3>
-      <h3>日時:{{post.started_at}}</a></h3>
+      <h3>URL: <a href= {{ post.url }} target="_blank">{{post.url}}</a></h3>
+      <h3>住所: <a href= https://www.google.co.jp/maps/search/{{ post.address }} target="_blank">{{post.address}}</a></h3>
+      <h3 id="start_time_change">{{post.started_at}}</h3>
+      <h3 id="end_time_change">{{post.ended_at}}</h3>
     </section>
       {% endfor %}
 
@@ -31,4 +34,5 @@
 
       <aside id="bg"><img src="{{ url_for('static', filename='bg.jpg') }}" class="landscape"><img src="{{ url_for('static', filename='bg2.jpg') }}" class="portrait"></aside>
     </body>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </html>

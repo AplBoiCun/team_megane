@@ -17,3 +17,13 @@ function MM_swapImage() { //v3.0
   var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
    if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
 }
+
+function time_change(time){
+  moment.lang('ja', {weekdays: ["日","月","火","水","木","金","土"]});
+  return moment(time).format('MM月DD日(dddd曜)hh:mm');
+}
+var start_time = document.getElementById('start_time_change');
+start_time.innerHTML = "開始日時: "+time_change(start_time);
+
+var end_time = document.getElementById('end_time_change');
+end_time.innerHTML = "終了日時: "+time_change(end_time);
