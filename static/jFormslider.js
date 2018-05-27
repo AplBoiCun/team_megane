@@ -128,26 +128,54 @@ $.fn.jFormslider=function(options)
 			}
 
 	});
-//$('#postnum').keypress(function(e){
-//	if ( e.which == 13 ) {
-//		e.preventDefault();
-//		document.form1.area.blur();
-//		$this.nextSlide();
-//	return false;
+	$('#postnum').keypress(function(e){
+		if ( e.which == 13 ) {
+			if(!numvalid($.trim($(this).val())))
+			{
+				$('#'+randomid).html('Please enter a 7-figure number').show();
+				$(this).focus();
+				slidestart=false;
+				return false;
+			}
+			else{
+			e.preventDefault();
+			document.form1.area.blur();
+			document.form1.submit();
+			return false;
+		}
 
-//	}});
+	}});
 	$('[next]').click(function(e){
 
 		e.preventDefault();
 		$this.nextSlide();
 	});
 
+	$(#subm).click(function(e){
+
+		if(!numvalid($.trim($(this).val())))
+		{
+			$('#'+randomid).html('Please enter a 7-figure number').show();
+			$(this).focus();
+			slidestart=false;
+			return false;
+		}
+		else{
+		e.preventDefault();
+		document.form1.area.blur();
+		document.form1.submit();
+		return false;
+	}
+
+	});
+
+
 	$.fn.nextSlide=function(){
 		var current_slide=$(this).get_current_slide();
 		var next_slide=current_slide.next('li');
 		var slidestart=false;
 
-		current_slide.find('input[required],select[required],input[email]').each(function(index,element){
+		current_slide.find('input[required],select[required],input[number]').each(function(index,element){
 			if($(this).hasAttr('required'))
 			{
 				if($.trim($(this).val())=='')
@@ -186,7 +214,7 @@ $.fn.jFormslider=function(options)
 
 
 		});
-		if(current_slide.find('input[required],select[required],input[email]').length<=0)
+		if(current_slide.find('input[required],select[required],input[number]').length<=0)
 		{
 			slidestart=true;
 		}
@@ -337,7 +365,7 @@ $.fn.jFormslider=function(options)
 
 	function numvalid(n)
 	{
-		var rexp = /^[0-9]{3}$/;
+		var rexp = /^[0-9]{7}$/;
 		return rexp.test(n);
 	}
 

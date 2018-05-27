@@ -6,15 +6,33 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     </head>
     <body>
-
+      <br><br>
       <h2>結果はこちら↓</h2>
-      {% for post in posts %}
-      <h3>TwitterID:{{ post.ID }}</h3>
-      <h3>Area:{{ post.area }}</h3>
-      
-      <p>----------------------------------------</p>
-      {% endfor %}
+      <section class="contents">
 
-      <a href="/">Topに戻る</a>
+      <p>TwitterID:{{ posts[0].ID }}</p>
+      <p>Area:{{ posts[0].area }}</p>
+      <!--{% for post in posts0 %}
+      <h3>おすすめのイベント1</h3>
+      <h3>イベント:{{ post.event }}</h3>
+      <h3>場所:{{ post.place }}</h3>
+      <h3>日時:{{post.date}}
+{% endfor %}-->
+      <p>-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+
+
+      使用したイベントサイト<br>
+      Eventon:
+      <a href="https://eventon.jp/" target="_blank">https://eventon.jp/</a><br>
+      connpass:
+      <a href="https://connpass.com/" target="_blank">https://connpass.com/</a><br>
+      ATND:
+      <a href="https://atnd.org/" target="_blank">https://atnd.org/</a>
+      <br><br><br><a href="/#search">もう一度検索</a>
+      </section>
+
+
+
+      <aside id="bg"><img src="{{ url_for('static', filename='bg.jpg') }}" class="landscape"><img src="{{ url_for('static', filename='bg2.jpg') }}" class="portrait"></aside>
     </body>
 </html>
