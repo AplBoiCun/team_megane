@@ -22,6 +22,3 @@ def add(id):
                 break
         if checker:
             user_table.update(operations.add("keyword",word_list[0]+","), q.ID.matches(id))
-
-if __name__ == "__main__":
-    add("AnimeAnime_jp")

@@ -11,8 +11,10 @@ keywords_list = [
 {"keyword": "データサイエンス","checkword": "データ,R,Python,機械学習,人工知能"},
 {"keyword": "仮想通貨", "checkword": "ブロックチェーン,Bitcoin,仮想通貨,マイニング"},
 {"keyword": "量子コンピュータ", "checkword": "量子コンピュータ"},
-{"keyword": "セキュリティ","checkword": "ハッキング,ハッカー,CTF"}
-
+{"keyword": "セキュリティ","checkword": "ハッキング,ハッカー,CTF"},
+{"keyword": "プログラミング","checkword": "プログラミング,コーディング,コード"},
+{"keyword": "IoT","checkword": "IoT"},
+{"keyword": "VR・AR","checkword": "VR,AR"}
 ]
 
 keyword_table.insert_multiple(keywords_list)

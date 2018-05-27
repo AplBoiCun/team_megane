@@ -37,7 +37,7 @@ def add():
   events = event_select.select(id)
   events = sort_by_distance.get(events, area)
   user = user_table.search(q.ID.matches(id))
-  user_keyword = '、'.join(user[0]["keyword"][:-1].split(","))
+  user_keyword = '、'.join(list(set(user[0]["keyword"][:-1].split(","))))
 
 
 
