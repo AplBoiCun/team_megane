@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, redirect, url_for
 import get_timelines
 import user_add_keywords
 import event_select
+import sort_by_distance
+
 
 app = Flask(__name__)
 
@@ -32,7 +34,8 @@ def add():
   get_timelines.get(id)
   user_add_keywords.add(id)
   events = event_select.select(id)
-  print(events)
+  events = sort_by_distance.get(events, area)
+
 
 
   return render_template('result.html', posts=events)
