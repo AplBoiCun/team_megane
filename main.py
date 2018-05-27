@@ -1,5 +1,7 @@
 #import get_timelines
 from flask import Flask, render_template, request, redirect, url_for
+import get_timelines
+
 app = Flask(__name__)
 
 from tinydb import TinyDB, Query
@@ -22,7 +24,7 @@ def add():
       'ID': request.args.get('twitter')
 
   })
-  #get_timelines.get(request.args.get('twitter'))
+  get_timelines.get(request.args.get('twitter'))
 
   return render_template('result.html', posts=db.all())
 
