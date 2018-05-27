@@ -2,6 +2,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 import get_timelines
 import user_add_keywords
+import event_select
 
 app = Flask(__name__)
 
@@ -29,6 +30,7 @@ def add():
   })
   get_timelines.get(id)
   user_add_keywords.add(id)
+  events = event_select.select(id)
 
 
   return render_template('result.html', posts=user_table.all())
