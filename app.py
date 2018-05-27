@@ -34,8 +34,8 @@ def add():
   get_timelines.get(id)
   user_add_keywords.add(id)
   events = event_select.select(id)
-  sort_by_distance.get(events, area)
-  #print(events)
+  events = sort_by_distance.get(events, area)
+
 
 
   return render_template('result.html', posts=events)

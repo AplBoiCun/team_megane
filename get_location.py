@@ -4,7 +4,6 @@ from urllib import request,parse
 import json
 
 def get(postcode):
-    print("郵便:"+str(postcode))
     url_getTown = 'https://postcode-jp.appspot.com/api/postcode?'
     param_getTown = {
         'postcode': postcode      # 郵便番号
@@ -27,8 +26,7 @@ def get(postcode):
     readObj = request.urlopen(url + paramStr)
     res = readObj.read().decode()
     data_location =json.loads(res)
-    print('baka')
+
     geocoding = data_location['results'][0]['geometry']['location']
-    print(geocoding['lat'])
-    print(geocoding['lng'])
+    
     return geocoding
