@@ -31,9 +31,10 @@ def add():
   get_timelines.get(id)
   user_add_keywords.add(id)
   events = event_select.select(id)
+  print(events)
 
 
-  return render_template('result.html', posts=user_table.all())
+  return render_template('result.html', posts=events)
 
 #@app.route("/reset")
 # def reset():

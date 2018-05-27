@@ -8,7 +8,6 @@ from tinydb import TinyDB, Query
 
 
 def get(id):
-  print("idはこれ" + id)
   db = TinyDB('main_db.json')
   timeline_table = db.table("timeline_table")
   timeline_table.purge()
@@ -29,7 +28,6 @@ def get(id):
 
   if res.status_code == 200:  # 正常通信出来た場合
     timelines = json.loads(res.text)  # レスポンスからタイムラインリストを取得
-    print(timelines[0])
     for line in timelines:  # タイムラインリストをループ処理
       timeline_table.insert({
           'text': line['text']
