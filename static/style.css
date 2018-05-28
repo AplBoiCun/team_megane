@@ -55,6 +55,9 @@ h3 {
 	clear: both;
 	margin-bottom: 20px;
 	padding: 8px 30px;			/*上下、左右への余白*/
+	background: #fff;
+	border-radius: 30px;
+	border: 2px solid #3e6680;
 }
 
 
