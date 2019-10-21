@@ -42,5 +42,5 @@ tinydb==3.9.0.post1
 urllib3==1.22
 virtualenv==16.0.0
 virtualenv-clone==0.3.0
-Werkzeug==0.14.1
+Werkzeug==0.15.3
 yapf==0.22.0
