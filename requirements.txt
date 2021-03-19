@@ -10,7 +10,7 @@ gunicorn==19.8.1
 idna==2.6
 itsdangerous==0.24
 jedi==0.12.0
-Jinja2==2.10
+Jinja2==2.11.3
 kiwisolver==1.0.1
 MarkupSafe==1.0
 matplotlib==2.2.2
